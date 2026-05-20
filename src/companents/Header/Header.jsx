@@ -26,7 +26,7 @@ const Header = () => {
           {/* Navigatsiya qismi (isOpen true bo'lsa 'active' klassi qo'shiladi) */}
           <nav className={`nav-menu ${isOpen ? 'active' : ''}`}>
             <ul>
-              <li><a href="#home" onClick={toggleMenu}>{t('header.nav.home')}</a></li>
+              <li><a id='#home' href="#home" onClick={toggleMenu}>{t('header.nav.home')}</a></li>
               <li><a href="#about" onClick={toggleMenu}>{t('header.nav.about')}</a></li>
               <li><a href="#services" onClick={toggleMenu}>{t('header.nav.services')}</a></li>
               <li><a href="#portfolio" onClick={toggleMenu}>{t('header.nav.portfolio')}</a></li>

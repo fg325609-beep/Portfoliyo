@@ -17,7 +17,7 @@ const Footer = () => {
 
         {/* Tepaga qaytish tugmasi (Header dagi #home id-siga ulanadi) */}
         <div className="footer-iconTop">
-          <a href="#home">
+          <a id='home' href="#home">
             <FaArrowUp />
           </a>
         </div>
