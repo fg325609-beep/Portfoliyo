@@ -215,3 +215,11 @@ $main-color: #00eeff;     // Neon ko'k (Cyan) rang
     }
   }
 }
+@media (max-width: 768px) {
+  .hero-img img {
+    width: 100%;
+    max-width: 280px; // Rasmni telefonda haddan tashqari katta bo'lib ketishidan himoyalaydi
+    height: auto;
+    margin: 0 auto;
+  }
+}

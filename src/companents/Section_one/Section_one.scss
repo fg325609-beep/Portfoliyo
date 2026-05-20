@@ -1,4 +1,4 @@
-// Ranglar palitrasi (Rasmdan aniq aniqlangan ranglar)
+// Ranglar palitrasi
 $bg-color: #1f242d;        // Umumiy sahifa foni
 $card-bg: #323846;        // Kartalarning foni
 $text-color: #ffffff;     // Matn rangi
@@ -32,27 +32,37 @@ $neon-cyan: #00eeff;      // Rasmdagi neon ko'k rang
       }
     }
 
-    // Grid konfiguratsiyasi (3 ta karta yonma-yon)
+    // Grid konfiguratsiyasi (Katta ekranda 3 ta karta yonma-yon)
     .cards {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
+      gap: 54px;
+      
       width: 100%;
 
       // Alohida karta konfiguratsiyasi
       .card {
         background-color: $card-bg;
         padding: 45px 30px;
-        border-radius: 15px; // Rasmdagi burchak yumshoqligi
+        border-radius: 15px;
         text-align: center;
         transition: all 0.3s ease-in-out;
+        
+        // Tillardan qat'i nazar kartalar balandligi bir xil bo'lishi uchun:
         display: flex;
         flex-direction: column;
+        justify-content: space-between; 
         align-items: center;
 
-        // Ikonka qutisi
+        // Kontent qismlarini tepaga tekislash uchun o'rovchi
+        .card-content {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+
         .icon-box {
-          font-size: 44px; // Ikonka kattaligi
+          font-size: 44px;
           color: $neon-cyan;
           margin-bottom: 15px;
           display: flex;
@@ -60,7 +70,6 @@ $neon-cyan: #00eeff;      // Rasmdagi neon ko'k rang
           justify-content: center;
         }
 
-        // Karta sarlavhasi
         h2 {
           font-size: 24px;
           font-weight: 700;
@@ -68,7 +77,6 @@ $neon-cyan: #00eeff;      // Rasmdagi neon ko'k rang
           color: $text-color;
         }
 
-        // Karta matni (Aynan rasmdagi shrift va rang o'lchamlari)
         p {
           font-size: 13.5px;
           color: rgba($text-color, 0.85);
@@ -77,7 +85,7 @@ $neon-cyan: #00eeff;      // Rasmdagi neon ko'k rang
           font-weight: 300;
         }
 
-        // Aynan rasmdagi neon yonuvchi tugma (Glow Effect)
+        // Neon yonuvchi tugma (Glow Effect)
         .read-more-btn {
           background-color: $neon-cyan;
           border: none;
@@ -88,7 +96,6 @@ $neon-cyan: #00eeff;      // Rasmdagi neon ko'k rang
           border-radius: 25px;
           cursor: pointer;
           transition: all 0.3s ease;
-          // Tugma ostidagi neon nur tarqalishi (Aynan rasmdagidek)
           box-shadow: 0 0 15px rgba($neon-cyan, 0.8); 
 
           &:hover {
@@ -97,7 +104,7 @@ $neon-cyan: #00eeff;      // Rasmdagi neon ko'k rang
           }
         }
 
-        // Karta ustiga borgandagi silliq effekt
+        // Karta ustiga borgandagi effekt
         &:hover {
           transform: translateY(-7px);
           box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
@@ -108,17 +115,20 @@ $neon-cyan: #00eeff;      // Rasmdagi neon ko'k rang
 }
 
 // ==========================================
-// RESPONSIVE DESIGN (300px gacha mukammal)
+// RESPONSIVE DESIGN (Media So'rovlari)
 // ==========================================
 
 // Planshetlar uchun (992px gacha)
 @media (max-width: 992px) {
   .services-section {
     padding: 60px 0;
+    
     .wrapper {
-      .section-title { font-size: 34px; }
+      .section-title { 
+        font-size: 34px; 
+      }
       .cards {
-        grid-template-columns: repeat(2, 1fr); // 2 tadan karta
+        grid-template-columns: repeat(2, 1fr); // 2 tadan karta joylashadi
         gap: 20px;
       }
     }
@@ -130,9 +140,13 @@ $neon-cyan: #00eeff;      // Rasmdagi neon ko'k rang
   .services-section {
     .wrapper {
       .cards {
-        grid-template-columns: 1fr; // Ustun shakliga o'tadi
-        max-width: 400px; // Markazda chiroyli turishi uchun cheklov
-        margin: 0 auto;
+        grid-template-columns: 1fr; // To'liq 1 qatorga o'tadi
+        max-width: 380px;           // Telefon ekranda kartani haddan tashqari enli bo'lishidan saqlaydi
+        margin: 0 auto;             // Markazga tekislash
+        
+        .card {
+          width: 100%;
+        }
       }
     }
   }
@@ -142,11 +156,17 @@ $neon-cyan: #00eeff;      // Rasmdagi neon ko'k rang
 @media (max-width: 480px) {
   .services-section {
     padding: 50px 0;
+    
     .wrapper {
-      .section-title { font-size: 28px; margin-bottom: 35px; }
+      .section-title { 
+        font-size: 28px; 
+        margin-bottom: 35px; 
+      }
+      
       .cards {
         .card {
           padding: 35px 20px;
+          
           h2 { font-size: 20px; }
           p { font-size: 13px; }
         }
@@ -155,19 +175,27 @@ $neon-cyan: #00eeff;      // Rasmdagi neon ko'k rang
   }
 }
 
-// 300px gacha bo'lgan eng kichik mobil ekranlar uchun maxsus moslashuv
+// 300px gacha bo'lgan o'ta kichik ekranlar uchun maxsus moslashuv
 @media (max-width: 340px) {
   .services-section {
-    .container { padding: 0 15px; }
+    .container { 
+      padding: 0 15px; 
+    }
+    
     .wrapper {
-      .section-title { font-size: 24px; }
+      .section-title { 
+        font-size: 24px; 
+      }
+      
       .cards {
         gap: 15px;
+        
         .card {
           padding: 30px 15px;
           h2 { font-size: 18px; }
+          
           .read-more-btn {
-            width: 100%; // Kichik ekranda tugma to'liq eni bo'yicha yoyiladi
+            width: 100%; // Tugma to'liq eni bo'yicha yoyiladi
             padding: 12px 0;
           }
         }
