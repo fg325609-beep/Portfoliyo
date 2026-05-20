@@ -1,0 +1,177 @@
+// Ranglar palitrasi (Rasmdan aniq aniqlangan ranglar)
+$bg-color: #1f242d;        // Umumiy sahifa foni
+$card-bg: #323846;        // Kartalarning foni
+$text-color: #ffffff;     // Matn rangi
+$neon-cyan: #00eeff;      // Rasmdagi neon ko'k rang
+
+.services-section {
+  background-color: $bg-color;
+  padding: 80px 0;
+  font-family: 'Poppins', sans-serif;
+  color: $text-color;
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .section-title {
+      font-size: 40px;
+      font-weight: 700;
+      margin-bottom: 50px;
+      text-align: center;
+
+      span {
+        color: $neon-cyan;
+      }
+    }
+
+    // Grid konfiguratsiyasi (3 ta karta yonma-yon)
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      width: 100%;
+
+      // Alohida karta konfiguratsiyasi
+      .card {
+        background-color: $card-bg;
+        padding: 45px 30px;
+        border-radius: 15px; // Rasmdagi burchak yumshoqligi
+        text-align: center;
+        transition: all 0.3s ease-in-out;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        // Ikonka qutisi
+        .icon-box {
+          font-size: 44px; // Ikonka kattaligi
+          color: $neon-cyan;
+          margin-bottom: 15px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        // Karta sarlavhasi
+        h2 {
+          font-size: 24px;
+          font-weight: 700;
+          margin-bottom: 15px;
+          color: $text-color;
+        }
+
+        // Karta matni (Aynan rasmdagi shrift va rang o'lchamlari)
+        p {
+          font-size: 13.5px;
+          color: rgba($text-color, 0.85);
+          line-height: 1.6;
+          margin-bottom: 30px;
+          font-weight: 300;
+        }
+
+        // Aynan rasmdagi neon yonuvchi tugma (Glow Effect)
+        .read-more-btn {
+          background-color: $neon-cyan;
+          border: none;
+          color: #1f242d;
+          padding: 10px 28px;
+          font-size: 14px;
+          font-weight: 600;
+          border-radius: 25px;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          // Tugma ostidagi neon nur tarqalishi (Aynan rasmdagidek)
+          box-shadow: 0 0 15px rgba($neon-cyan, 0.8); 
+
+          &:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 25px $neon-cyan;
+          }
+        }
+
+        // Karta ustiga borgandagi silliq effekt
+        &:hover {
+          transform: translateY(-7px);
+          box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+      }
+    }
+  }
+}
+
+// ==========================================
+// RESPONSIVE DESIGN (300px gacha mukammal)
+// ==========================================
+
+// Planshetlar uchun (992px gacha)
+@media (max-width: 992px) {
+  .services-section {
+    padding: 60px 0;
+    .wrapper {
+      .section-title { font-size: 34px; }
+      .cards {
+        grid-template-columns: repeat(2, 1fr); // 2 tadan karta
+        gap: 20px;
+      }
+    }
+  }
+}
+
+// Kichik planshet va katta telefonlar (768px gacha)
+@media (max-width: 768px) {
+  .services-section {
+    .wrapper {
+      .cards {
+        grid-template-columns: 1fr; // Ustun shakliga o'tadi
+        max-width: 400px; // Markazda chiroyli turishi uchun cheklov
+        margin: 0 auto;
+      }
+    }
+  }
+}
+
+// Oddiy telefonlar uchun (480px gacha)
+@media (max-width: 480px) {
+  .services-section {
+    padding: 50px 0;
+    .wrapper {
+      .section-title { font-size: 28px; margin-bottom: 35px; }
+      .cards {
+        .card {
+          padding: 35px 20px;
+          h2 { font-size: 20px; }
+          p { font-size: 13px; }
+        }
+      }
+    }
+  }
+}
+
+// 300px gacha bo'lgan eng kichik mobil ekranlar uchun maxsus moslashuv
+@media (max-width: 340px) {
+  .services-section {
+    .container { padding: 0 15px; }
+    .wrapper {
+      .section-title { font-size: 24px; }
+      .cards {
+        gap: 15px;
+        .card {
+          padding: 30px 15px;
+          h2 { font-size: 18px; }
+          .read-more-btn {
+            width: 100%; // Kichik ekranda tugma to'liq eni bo'yicha yoyiladi
+            padding: 12px 0;
+          }
+        }
+      }
+    }
+  }
+}

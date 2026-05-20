@@ -1,0 +1,217 @@
+// Loyihaning maxsus ranglari
+$bg-color: #171c26;       // Rasmga eng mos to'q fon rang
+$text-color: #ffffff;     // Oq matnlar
+$main-color: #00eeff;     // Neon ko'k (Cyan) rang
+
+.hero-section {
+  background-color: $bg-color;
+  min-height: calc(100vh - 80px);
+  display: flex;
+  align-items: center;
+  color: $text-color;
+  padding: 60px 0;
+  font-family: 'Poppins', sans-serif; // Agarda shrift o'xshashi kerak bo'lsa
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    width: 100%;
+  }
+
+  .hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+
+    // CHAP TOMON (Matnlar qismi)
+    .hero-left {
+      flex: 1.2;
+
+      h5 {
+        font-size: 24px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+      }
+
+      h2 {
+        font-size: 64px;
+        font-weight: 800;
+        margin: 8px 0;
+        line-height: 1.1;
+      }
+
+      h3 {
+        font-size: 28px;
+        font-weight: 700;
+        margin-bottom: 22px;
+
+        span {
+          color: $main-color;
+          position: relative;
+          
+          // Matn oxiridagi tik chiziqcha "|" effekti
+          &:after {
+            content: '|';
+            color: $main-color;
+            margin-left: 2px;
+          }
+        }
+      }
+
+      p {
+        font-size: 15px;
+        line-height: 1.6;
+        color: rgba($text-color, 0.85);
+        margin-bottom: 35px;
+        max-width: 520px;
+      }
+
+      // Yumaloq Ikonkalar
+      .social-icons {
+        display: flex;
+        gap: 16px;
+        margin-bottom: 40px;
+
+        a {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 42px;
+          height: 42px;
+          background: transparent;
+          border: 2px solid $main-color;
+          border-radius: 50%;
+          color: $main-color;
+          font-size: 16px;
+          text-decoration: none;
+          transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+          &:hover {
+            background-color: $main-color;
+            color: $bg-color;
+            box-shadow: 0 0 15px $main-color;
+            transform: translateY(-3px); // Biroz tepaga ko'tarilish effekti
+          }
+        }
+      }
+
+      // Aynan rasmdagi neon yonuvchi Download CV tugmasi
+      .cv-btn {
+        background-color: $main-color;
+        border: 2px solid $main-color;
+        border-radius: 30px;
+        color: $bg-color;
+        padding: 10px 26px;
+        font-size: 15px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 0 20px rgba($main-color, 0.6); // Tugma atrofidagi doimiy neon olov
+
+        &:hover {
+          background: transparent;
+          color: $main-color;
+          box-shadow: 0 0 30px $main-color;
+        }
+      }
+    }
+
+    // O'NG TOMON (Rasm va Oltiburchak neon glow)
+    .hero-right {
+      flex: 0.8;
+      display: flex;
+      justify-content: flex-end;
+
+      .img-box {
+        position: relative;
+        width: 410px;
+        height: 410px;
+        background-color: $main-color;
+        clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        // Oltiburchak atrofida neon ko'k chiroq tarqalishi uchun filter qo'llaymiz
+        filter: drop-shadow(0 0 30px rgba($main-color, 0.55));
+
+        img {
+          width: 97%;
+          height: 97%;
+          object-fit: cover;
+          clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+          background-color: $bg-color;
+        }
+      }
+    }
+  }
+}
+
+// ==========================================
+// RESPONSIVE DESIGN (300px gacha)
+// ==========================================
+
+@media (max-width: 992px) {
+  .hero-section {
+    padding: 40px 0;
+    .hero {
+      flex-direction: column-reverse; 
+      text-align: center;
+      gap: 35px;
+
+      .hero-left {
+        p { margin: 0 auto 30px; }
+        .social-icons { justify-content: center; }
+      }
+      .hero-right {
+        justify-content: center;
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-section {
+    .hero {
+      .hero-left {
+        h5 { font-size: 18px; }
+        h2 { font-size: 40px; }
+        h3 { font-size: 20px; }
+        p { font-size: 14px; }
+      }
+      .hero-right {
+        .img-box {
+          width: 300px;
+          height: 300px;
+        }
+      }
+    }
+  }
+}
+
+// 300px gacha bo'lgan juda kichik smartfonlar uchun maxsus qism
+@media (max-width: 340px) {
+  .hero-section {
+    .hero {
+      .hero-left {
+        h2 { font-size: 32px; }
+        h3 { font-size: 16px; }
+        p { font-size: 13px; padding: 0 5px; }
+        
+        .cv-btn {
+          width: 100%; // Kichkina ekranda tugma to'liq joy egallaydi
+          font-size: 14px;
+        }
+      }
+      .hero-right {
+        .img-box {
+          width: 230px; // Ekrandan chiqib ketmasligi uchun kichraytirildi
+          height: 230px;
+        }
+      }
+    }
+  }
+}

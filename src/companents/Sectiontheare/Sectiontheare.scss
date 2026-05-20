@@ -1,0 +1,187 @@
+$bg-color: #1f242d;
+$input-bg: #323846;
+$text-color: #ffffff;
+$main-color: #00eeff;
+
+.contact-section {
+  background-color: $bg-color;
+  padding: 80px 0;
+  font-family: 'Poppins', sans-serif;
+  color: $text-color;
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  // Sarlavha
+  .section-title {
+    font-size: 40px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 50px;
+
+    span {
+      color: $main-color;
+    }
+  }
+
+  // Forma dizayni
+  .contact-form {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+
+    // Inputlarni 2 tadan yonma-yon qilish uchun panel
+    .input-group {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 20px;
+
+      input {
+        width: 100%;
+      }
+    }
+
+    // Inputlar va Textarea uchun umumiy stillar
+    input, textarea {
+      background-color: $input-bg;
+      border: none;
+      border-radius: 10px;
+      padding: 16px;
+      font-size: 15px;
+      color: $text-color;
+      outline: none;
+      font-family: inherit;
+      transition: all 0.3s ease;
+
+      &::placeholder {
+        color: rgba($text-color, 0.5);
+      }
+
+      // Inputga bosilganda (Focus holatida) neon chet chizig'i chiqishi uchun
+      &:focus {
+        box-shadow: 0 0 10px rgba($main-color, 0.3);
+        background-color: lighten($input-bg, 3%);
+      }
+    }
+
+    textarea {
+      width: 100%;
+      resize: none; // Foydalanuvchi o'lchamini buza olmasligi uchun
+      margin-bottom: 30px;
+    }
+
+    // Status xabarlari (Muvaffaqiyatli yoki xato)
+    .status-msg {
+      font-size: 14px;
+      margin-bottom: 20px;
+      font-weight: 500;
+      
+      &.success { color: #00ff88; }
+      &.error { color: #ff3366; }
+    }
+
+    // Aynan rasmdagi neon olovli Send Message tugmasi
+    .send-btn {
+      background-color: $main-color;
+      border: none;
+      color: #1f242d;
+      padding: 12px 36px;
+      font-size: 15px;
+      font-weight: 600;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 15px rgba($main-color, 0.8); // Doimiy neon porlashi
+
+      &:hover {
+        transform: scale(1.03);
+        box-shadow: 0 0 25px $main-color;
+      }
+
+      &:disabled {
+        background-color: #555;
+        box-shadow: none;
+        cursor: not-allowed;
+      }
+    }
+  }
+}
+
+// ==========================================
+// RESPONSIVE DESIGN (300px gacha)
+// ==========================================
+
+// Kichik monitorlar va planshetlar uchun (992px gacha)
+@media (max-width: 992px) {
+  .contact-section {
+    padding: 60px 0;
+    
+    .section-title {
+      font-size: 34px;
+    }
+  }
+}
+
+// Telefonlar uchun (Ekran 600px dan kichrayganda input-group ustun shakliga o'tadi)
+@media (max-width: 600px) {
+  .contact-section {
+    .contact-form {
+      .input-group {
+        flex-direction: column; // Inputlar endi yonma-yon emas, ustma-ust tushadi
+        gap: 15px;
+        margin-bottom: 15px;
+      }
+
+      input, textarea {
+        padding: 14px;
+        font-size: 14px;
+      }
+
+      textarea {
+        margin-bottom: 25px;
+      }
+    }
+  }
+}
+
+// Kichik mobil telefonlar uchun (480px gacha)
+@media (max-width: 480px) {
+  .contact-section {
+    padding: 50px 0;
+
+    .section-title {
+      font-size: 28px;
+      margin-bottom: 35px;
+    }
+  }
+}
+
+// 300px gacha bo'lgan o'ta kichik mobil ekranlar uchun maxsus moslashtirish
+@media (max-width: 340px) {
+  .contact-section {
+    .container {
+      padding: 0 15px;
+    }
+
+    .section-title {
+      font-size: 24px;
+    }
+
+    .contact-form {
+      input, textarea {
+        padding: 12px;
+        font-size: 13px;
+        border-radius: 8px;
+      }
+
+      .send-btn {
+        width: 100%; // Kichik ekranda tugma to'liq eni bo'yicha yoyiladi
+        padding: 12px 0;
+        font-size: 14px;
+      }
+    }
+  }
+}

@@ -1,0 +1,197 @@
+$bg-color: #1f242d;
+$text-color: #ffffff;
+$main-color: #00eeff;
+
+.portfolio-section {
+  background-color: $bg-color;
+  padding: 80px 0;
+  font-family: 'Poppins', sans-serif;
+  color: $text-color;
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  // Sarlavha dizayni
+  .section-title {
+    font-size: 40px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 60px;
+    letter-spacing: 1px;
+
+    span {
+      color: $main-color;
+    }
+  }
+
+  // 3x2 Grid Tizimi
+  .portfolio-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); // Yonma-yon 3 ta karta
+    gap: 30px; // Kartalar orasidagi masofa
+
+    .portfolio-box {
+      position: relative;
+      border-radius: 20px; // Rasmdagi burchak yumaloqligi
+      overflow: hidden;    // Ichidagi elementlar burchakdan chiqib ketmasligi uchun
+      display: flex;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+
+      // Rasm ustidagi effekt qatlami (Hover Layer)
+      .portfolio-layer {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        // Neon ko'k rangdan shaffof gradient effekt
+        background: linear-gradient(rgba(0, 0, 0, 0.1), $main-color);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 0 40px;
+        // Boshlang'ich holatda pastga berkitib turamiz
+        transform: translateY(100%);
+        transition: transform 0.5s ease;
+
+        h4 {
+          font-size: 24px;
+          font-weight: 700;
+          color: #1f242d; // Neon ustida to'q rang ajralib turadi
+        }
+
+        p {
+          font-size: 14px;
+          margin: 10px 0 20px;
+          color: #1f242d;
+          line-height: 1.5;
+          font-weight: 500;
+        }
+
+        // Loyihaga o'tish doirachali havolasi
+        a {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 45px;
+          height: 45px;
+          background: $text-color;
+          border-radius: 50%;
+          color: $bg-color;
+          font-size: 20px;
+          transition: 0.3s ease;
+
+          &:hover {
+            transform: scale(1.1);
+            background-color: $bg-color;
+            color: $main-color;
+          }
+        }
+      }
+
+      // Karta ustiga sichqoncha kelgandagi effekt
+      &:hover {
+        img {
+          transform: scale(1.08); // Rasm orqaga biroz kattalashadi
+        }
+
+        .portfolio-layer {
+          transform: translateY(0); // Qatlam pastdan tepaga ko'tariladi
+        }
+      }
+    }
+  }
+}
+
+// ==========================================
+// RESPONSIVE DESIGN (Moslashuvchanlik)
+// ==========================================
+
+// Kichikroq monitorlar va planshetlar uchun (992px gacha)
+@media (max-width: 992px) {
+  .portfolio-section {
+    padding: 60px 0;
+    
+    .section-title {
+      font-size: 34px;
+      margin-bottom: 45px;
+    }
+
+    .portfolio-container {
+      grid-template-columns: repeat(2, 1fr); // Monitor kichrayganda 2 tadan bo'ladi
+      gap: 20px;
+    }
+  }
+}
+
+// Kichik planshetlar va telefonlar uchun (768px gacha)
+@media (max-width: 768px) {
+  .portfolio-section {
+    .portfolio-container {
+      grid-template-columns: 1fr; // To'liq bitta qatorga o'tadi
+      max-width: 420px; // Telefonda juda cho'zilib ketmasligi uchun
+      margin: 0 auto;
+    }
+  }
+}
+
+// Smartfonlar uchun (480px gacha)
+@media (max-width: 480px) {
+  .portfolio-section {
+    padding: 50px 0;
+
+    .section-title {
+      font-size: 28px;
+      margin-bottom: 35px;
+    }
+
+    .portfolio-container {
+      .portfolio-box {
+        .portfolio-layer {
+          padding: 0 20px;
+          h4 { font-size: 20px; }
+          p { font-size: 13px; }
+        }
+      }
+    }
+  }
+}
+
+// 300px gacha bo'lgan eng kichik ekranlar uchun maxsus qism
+@media (max-width: 340px) {
+  .portfolio-section {
+    .container {
+      padding: 0 15px;
+    }
+
+    .section-title {
+      font-size: 24px;
+    }
+
+    .portfolio-container {
+      gap: 15px;
+
+      .portfolio-box {
+        border-radius: 15px; // Burchaklarni biroz kichraytiramiz
+        
+        .portfolio-layer {
+          h4 { font-size: 18px; }
+          p { display: none; } // Juda kichik ekranda joy qolmagani uchun tavsifni berkitamiz
+          a { width: 38px; height: 38px; font-size: 16px; }
+        }
+      }
+    }
+  }
+}

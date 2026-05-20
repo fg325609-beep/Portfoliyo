@@ -7,5 +7,57 @@
       "portfolio": "Portfolio",
       "contact": "Contact"
     }
+  },
+  "hero": {
+    "hello": "Hello It's Me",
+    "job_prefix": "And I'm a ",
+    "job_title": "Frontend Developer",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae nulla libero labore exercitationem, iste iusto unde eos.",
+    "download_btn": "Download CV"
+  },
+  "services": {
+    "title_part1": "Our ",
+    "title_part2": "Services",
+    "list": [
+      { "title": "Web Development", "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis iure nisi dolor recusandae voluptas et voluptatibus explicabo ducimus magni at!", "btn": "Read More" },
+      { "title": "Graphic Design", "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis iure nisi dolor recusandae voluptas et voluptatibus explicabo ducimus magni at!", "btn": "Read More" },
+      { "title": "Digital Marketing", "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis iure nisi dolor recusandae voluptas et voluptatibus explicabo ducimus magni at!", "btn": "Read More" }
+    ]
+  },
+  "services": {
+    "title_part1": "Наши ",
+    "title_part2": "Услуги",
+    "list": [
+      { "title": "Web Development", "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis iure nisi dolor recusandae voluptas et voluptatibus explicabo ducimus magni at!", "btn": "Read More" },
+      { "title": "Graphic Design", "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis iure nisi dolor recusandae voluptas et voluptatibus explicabo ducimus magni at!", "btn": "Read More" },
+      { "title": "Digital Marketing", "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis iure nisi dolor recusandae voluptas et voluptatibus explicabo ducimus magni at!", "btn": "Read More" }
+    ]
+  },
+  "portfolio": {
+    "title_part1": "Latest ",
+    "title_part2": "Project",
+    "projects": [
+      { "title": "Web Design", "desc": "Perfect frontend solutions for e-commerce and corporate websites." },
+      { "title": "Mobile App", "desc": "Compact mobile application built using modern tech stack." },
+      { "title": "Dashboard UI", "desc": "Fast and responsive management system for admins and statistics." },
+      { "title": "Food Delivery", "desc": "Online ordering and delivery service management platform." },
+      { "title": "Crypto Wallet", "desc": "Secure web wallet based on modern blockchain technologies." },
+      { "title": "Portfolio Website", "desc": "Modern personal portfolio website for developers and designers." }
+    ]
+  },
+  "contact": {
+    "title_part1": "Contact ",
+    "title_part2": "Me!",
+    "name": "Full Name",
+    "email": "Email Address",
+    "phone": "Mobile Number",
+    "subject": "Email Subject",
+    "message": "Your Message...",
+    "btn": "Send Message",
+    "success": "Your message has been sent successfully!",
+    "error": "Something went wrong. Please try again."
+  },
+  "footer": {
+    "rights": "Copyright © 2026 Codehal | All Rights Reserved."
   }
 }

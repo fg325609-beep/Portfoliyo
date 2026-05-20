@@ -1,59 +1,167 @@
-// Ranglar uchun o'zgaruvchilar (ixtiyoriy, loyihangizga qarab moslang)
 $bg-color: #1f242d;
-$text-color: #fff;
+$card-bg: #323846;
+$text-color: #ffffff;
 $main-color: #00eeff;
 
 header {
-  background-color: $bg-color;
-  padding: 20px 0;
-  position: fixed; // Sahifa skroll bo'lganda tepada qotib turishi uchun
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
+  background-color: rgba($bg-color, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 20px 0;
   z-index: 1000;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba($main-color, 0.1);
 
   .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 24px;
     display: flex;
-    justify-content: space-between; // Logotip va Navigatsiyani ikki chetga suradi
+    justify-content: space-between;
     align-items: center;
+  }
 
-    h1 {
-      font-size: 28px;
-      color: $text-color;
-      font-weight: 700;
-      cursor: pointer;
+  .logo {
+    font-size: 25px;
+    color: $text-color;
+    font-weight: 700;
+  }
+
+  // KATTA EKRANLAR UCHUN MENYU STILI
+  .nav-menu {
+    ul {
+      display: flex;
+      gap: 35px;
+      list-style: none;
+
+      li {
+        a {
+          font-size: 16px;
+          color: $text-color;
+          text-decoration: none;
+          font-weight: 500;
+          transition: color 0.3s ease;
+
+          &:hover, &[href="#home"] {
+            color: $main-color;
+            text-shadow: 0 0 10px rgba($main-color, 0.6);
+          }
+        }
+      }
+    }
+  }
+
+  // O'ng tomon bloklari (Select va Burger)
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .lang-select {
+    background-color: $card-bg;
+    color: $text-color;
+    border: 1px solid rgba($main-color, 0.3);
+    padding: 6px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    outline: none;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.3s ease;
+
+    &:focus {
+      border-color: $main-color;
+      box-shadow: 0 0 8px rgba($main-color, 0.4);
+    }
+  }
+
+  // Burger tugmasi (Katta ekranda berkitib turiladi)
+  .menu-burger-btn {
+    display: none;
+    background: transparent;
+    border: none;
+    color: $text-color;
+    font-size: 24px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: $main-color;
+    }
+  }
+}
+
+// Fixed header ostida qolmasligi uchun body paddingi
+body {
+  padding-top: 75px; 
+}
+
+// ==========================================
+// MODAL VA RESPONSIVE DIZAYN (768px dan pastga)
+// ==========================================
+@media (max-width: 768px) {
+  header {
+    padding: 15px 0;
+
+    .menu-burger-btn {
+      display: flex; // Telefon ekranda burger ko'rinadi
+      z-index: 1001; // Menyu ichida ustki qatlamda turishi uchun
     }
 
-    nav {
+    // Navigatsiya endi yon tomondan chiquvchi MODALga aylanadi
+    .nav-menu {
+      position: fixed;
+      top: 0;
+      right: -100%; // Boshlang'ich holatda ekrandan tashqarida turadi
+      width: 280px;  // Modal eni
+      height: 100vh; // Butun ekran bo'yi
+      background-color: lighten($bg-color, 3%);
+      box-shadow: -5px 0 25px rgba(0, 0, 0, 0.5);
+      border-left: 2px solid $main-color; // Neon chet chizig'i
+      padding: 100px 40px;
+      transition: right 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); // Silliq sirg'alish
+
+      // Modal ochiq bo'lganda (active klassi qo'shilganda)
+      &.active {
+        right: 0; // Ekran ichiga kirib keladi
+      }
+
       ul {
-        display: flex;
-        gap: 35px; // Linklar orasidagi masofa
-        list-style: none;
+        flex-direction: column; // Havolalar ustma-ust tushadi
+        gap: 30px;
 
-        li {
-          a {
-            font-size: 18px;
-            color: $text-color;
-            text-decoration: none;
-            font-weight: 500;
-            transition: 0.3s ease; // Silliq effekt uchun
-
-            &:hover,
-            &.active {
-              color: $main-color; // Sichqoncha kelganda yoki aktiv bo'lgandagi rang
-            }
-          }
+        li a {
+          font-size: 18px;
+          display: block;
+          width: 100%;
         }
       }
     }
   }
 }
 
-// Kontent header-ning tagida qolib ketmasligi uchun (chunki header fixed)
-body {
-  padding-top: 80px; 
+// Orqa fonni xiralashtiruvchi overlay
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  z-index: 999;
+}
+
+// 300px gacha bo'lgan o'ta kichik mobil ekranlar uchun
+@media (max-width: 340px) {
+  header {
+    .logo { font-size: 20px; }
+    .nav-menu {
+      width: 230px; // Juda kichik ekranda modal biroz toraytiriladi
+      padding: 90px 25px;
+    }
+  }
 }

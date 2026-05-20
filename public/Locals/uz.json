@@ -7,5 +7,48 @@
       "portfolio": "Ishlarimiz",
       "contact": "Aloqa"
     }
+  },
+  "hero": {
+    "hello": "Salom, bu men",
+    "job_prefix": "Va men ",
+    "job_title": "Frontend Dasturchiman",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae nulla libero labore exercitationem, iste iusto unde eos.",
+    "download_btn": "CV Yuklab Olish"
+  },
+  "services": {
+    "title_part1": "Bizning ",
+    "title_part2": "Xizmatlar",
+    "list": [
+      { "title": "Web Development", "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis iure nisi dolor recusandae voluptas et voluptatibus explicabo ducimus magni at!", "btn": "Read More" },
+      { "title": "Graphic Design", "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis iure nisi dolor recusandae voluptas et voluptatibus explicabo ducimus magni at!", "btn": "Read More" },
+      { "title": "Digital Marketing", "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis iure nisi dolor recusandae voluptas et voluptatibus explicabo ducimus magni at!", "btn": "Read More" }
+    ]
+  },
+  "portfolio": {
+    "title_part1": "So'nggi ",
+    "title_part2": "Loyihalar",
+    "projects": [
+      { "title": "Veb Sahifa Dizayni", "desc": "E-tijorat va korporativ saytlar uchun mukammal frontend yechimlari." },
+      { "title": "Mobil Ilova", "desc": "React Native texnologiyasi yordamida yaratilgan ixcham ilova." },
+      { "title": "Dashboard Paneli", "desc": "Adminlar va statistika uchun qulay va tezkor boshqaruv tizimi." },
+      { "title": "Oziq-ovqat Yetkazish", "desc": "Onlayn buyurtma berish va yetkazish xizmatini boshqarish sayti." },
+      { "title": "Kripto Hamyon", "desc": "Blokcheyn texnologiyalariga asoslangan xavfsiz veb hamyon." },
+      { "title": "Portfolio Sayt", "desc": "Dasturchilar va dizaynerlar uchun zamonaviy tashrif qog'ozi." }
+    ]
+  },
+  "contact": {
+    "title_part1": "Men bilan ",
+    "title_part2": "Bog'laning!",
+    "name": "To'liq ismingiz",
+    "email": "Email manzilingiz",
+    "phone": "Telefon raqamingiz",
+    "subject": "Xabar mavzusi",
+    "message": "Xabaringizni shu yerga yozing...",
+    "btn": "Xabarni yuborish",
+    "success": "Xabaringiz muvaffaqiyatli yuborildi!",
+    "error": "Xabar yuborishda xatolik yuz berdi. Qayta urinib ko'ring."
+  },
+  "footer": {
+    "rights": "Copyright © 2026 Codehal | Barcha huquqlar himoyalangan."
   }
 }
