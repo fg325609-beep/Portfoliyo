@@ -1,0 +1,11 @@
+{
+  "header": {
+    "nav": {
+      "home": "Asosiy",
+      "about": "Biz haqimizda",
+      "services": "Xizmatlar",
+      "portfolio": "Ishlarimiz",
+      "contact": "Aloqa"
+    }
+  }
+}

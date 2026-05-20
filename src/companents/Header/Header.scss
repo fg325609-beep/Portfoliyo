@@ -1,0 +1,59 @@
+// Ranglar uchun o'zgaruvchilar (ixtiyoriy, loyihangizga qarab moslang)
+$bg-color: #1f242d;
+$text-color: #fff;
+$main-color: #00eeff;
+
+header {
+  background-color: $bg-color;
+  padding: 20px 0;
+  position: fixed; // Sahifa skroll bo'lganda tepada qotib turishi uchun
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between; // Logotip va Navigatsiyani ikki chetga suradi
+    align-items: center;
+
+    h1 {
+      font-size: 28px;
+      color: $text-color;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    nav {
+      ul {
+        display: flex;
+        gap: 35px; // Linklar orasidagi masofa
+        list-style: none;
+
+        li {
+          a {
+            font-size: 18px;
+            color: $text-color;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s ease; // Silliq effekt uchun
+
+            &:hover,
+            &.active {
+              color: $main-color; // Sichqoncha kelganda yoki aktiv bo'lgandagi rang
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Kontent header-ning tagida qolib ketmasligi uchun (chunki header fixed)
+body {
+  padding-top: 80px; 
+}
