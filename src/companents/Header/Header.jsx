@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-
+import { useTranslation } from 'react-i18next'; // <-- Shuni tekshiring, borligiga ishonch hosil qiling!
 import "./Header.scss";
 
 const Header = () => {
   const { t, i18n } = useTranslation(); 
   const [isOpen, setIsOpen] = useState(false);
-
   const changeLanguage = (event) => {
     i18n.changeLanguage(event.target.value);
   };
