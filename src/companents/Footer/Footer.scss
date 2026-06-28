@@ -1,4 +1,3 @@
-// HTML sahifani silliq siljiydigan qilamiz (Strelka bosilganda ohista tepaga chiqadi)
 html {
   scroll-behavior: smooth;
 }
@@ -8,23 +7,22 @@ $text-color: #ffffff;
 $main-color: #00eeff;
 
 .footer {
-  background-color: $bg-color;
-  padding: 24px 0; // Rasmdagidek ixcham balandlik
+  background: linear-gradient(135deg, $bg-color, #191e26);
+  padding: 24px 0;
   font-family: 'Poppins', sans-serif;
   color: $text-color;
-  border-top: 1px solid rgba($main-color, 0.1); // Sahifadan ajralib turishi uchun nozik chiziq
+  border-top: 1px solid rgba($main-color, 0.1);
 
   .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 24px;
     display: flex;
-    justify-content: space-between; // Matn chapda, strelka o'ngda joylashadi
+    justify-content: space-between;
     align-items: center;
     width: 100%;
   }
 
-  // Mualliflik huquqi matni
   .footer-text {
     p {
       font-size: 14px;
@@ -34,7 +32,6 @@ $main-color: #00eeff;
     }
   }
 
-  // Neon effektli tepaga chiqish tugmasi
   .footer-iconTop {
     a {
       display: flex;
@@ -42,57 +39,51 @@ $main-color: #00eeff;
       justify-content: center;
       width: 42px;
       height: 42px;
-      background-color: $main-color;
-      color: #1f242d; // Ikonka to'q rangda aniq ko'rinadi
+      background: linear-gradient(135deg, $main-color, #0077ff);
+      color: #1f242d;
       font-size: 18px;
-      border-radius: 8px; // Rasmdagi to'rtburchak burchak yumshoqligi
+      border-radius: 8px;
       text-decoration: none;
       transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      box-shadow: 0 0 15px rgba($main-color, 0.7); // Rasmdagi doimiy porlash
+      box-shadow: 0 0 15px rgba($main-color, 0.7);
 
       &:hover {
-        transform: translateY(-4px); // Ustiga borganda biroz tepaga sakraydi
+        transform: translateY(-4px);
         box-shadow: 0 0 25px $main-color;
-        background-color: lighten($main-color, 5%);
+        background: linear-gradient(135deg, #33f1ff, #3399ff);
       }
     }
   }
 }
 
-// ==========================================
-// RESPONSIVE DESIGN (300px gacha)
-// ==========================================
-
-// Kichikroq ekranlar va telefonlar uchun (768px dan kichrayganda)
 @media (max-width: 768px) {
   .footer {
     padding: 20px 0;
 
     .container {
-      flex-direction: column-reverse; // Telefonlarda matn pastga, strelka tepaga chiqadi
-      gap: 15px;                      // Ular orasidagi masofa
+      flex-direction: column-reverse;
+      gap: 15px;
       text-align: center;
     }
   }
 }
 
-// 300px gacha bo'lgan o'ta kichik mobil ekranlar uchun maxsus moslashtirish
 @media (max-width: 340px) {
   .footer {
     .container {
-      padding: 0 15px; // Yon chetlarni biroz qisqartiramiz
+      padding: 0 15px;
     }
 
     .footer-text {
       p {
-        font-size: 12px; // Matn ekranga sig'ishi uchun kichraytirildi
+        font-size: 12px;
         line-height: 1.4;
       }
     }
 
     .footer-iconTop {
       a {
-        width: 38px;  // Tugma ham ixchamroq holatga keltiriladi
+        width: 38px;
         height: 38px;
         font-size: 16px;
       }

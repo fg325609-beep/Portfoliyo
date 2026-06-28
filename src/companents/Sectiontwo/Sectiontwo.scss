@@ -3,7 +3,7 @@ $text-color: #ffffff;
 $main-color: #00eeff;
 
 .portfolio-section {
-  background-color: $bg-color;
+  background: linear-gradient(135deg, $bg-color, #191e26);
   padding: 80px 0;
   font-family: 'Poppins', sans-serif;
   color: $text-color;
@@ -14,7 +14,6 @@ $main-color: #00eeff;
     padding: 0 24px;
   }
 
-  // Sarlavha dizayni
   .section-title {
     font-size: 40px;
     font-weight: 700;
@@ -27,18 +26,24 @@ $main-color: #00eeff;
     }
   }
 
-  // 3x2 Grid Tizimi
   .portfolio-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); // Yonma-yon 3 ta karta
-    gap: 30px; // Kartalar orasidagi masofa
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
 
     .portfolio-box {
       position: relative;
-      border-radius: 20px; // Rasmdagi burchak yumaloqligi
-      overflow: hidden;    // Ichidagi elementlar burchakdan chiqib ketmasligi uchun
+      border-radius: 20px;
+      overflow: hidden;
       display: flex;
       box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba($main-color, 0.05);
+      transition: all 0.3s ease;
+
+      &:hover {
+        border-color: rgba($main-color, 0.2);
+        box-shadow: 0 0 25px rgba($main-color, 0.1);
+      }
 
       img {
         width: 100%;
@@ -47,29 +52,26 @@ $main-color: #00eeff;
         transition: transform 0.5s ease;
       }
 
-      // Rasm ustidagi effekt qatlami (Hover Layer)
       .portfolio-layer {
         position: absolute;
         bottom: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        // Neon ko'k rangdan shaffof gradient effekt
-        background: linear-gradient(rgba(0, 0, 0, 0.1), $main-color);
+        background: linear-gradient(rgba(0, 0, 0, 0.1), rgba($main-color, 0.95));
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         text-align: center;
         padding: 0 40px;
-        // Boshlang'ich holatda pastga berkitib turamiz
         transform: translateY(100%);
         transition: transform 0.5s ease;
 
         h4 {
           font-size: 24px;
           font-weight: 700;
-          color: #1f242d; // Neon ustida to'q rang ajralib turadi
+          color: #1f242d;
         }
 
         p {
@@ -80,7 +82,6 @@ $main-color: #00eeff;
           font-weight: 500;
         }
 
-        // Loyihaga o'tish doirachali havolasi
         a {
           display: flex;
           align-items: center;
@@ -94,44 +95,26 @@ $main-color: #00eeff;
           transition: 0.3s ease;
 
           &:hover {
-            transform: scale(1.1);
+            transform: scale(1.1) rotate(360deg);
             background-color: $bg-color;
             color: $main-color;
           }
         }
       }
 
-      // Karta ustiga sichqoncha kelgandagi effekt
       &:hover {
         img {
-          transform: scale(1.08); // Rasm orqaga biroz kattalashadi
+          transform: scale(1.08);
         }
 
         .portfolio-layer {
-          transform: translateY(0); // Qatlam pastdan tepaga ko'tariladi
+          transform: translateY(0);
         }
       }
     }
   }
 }
-.cards {
-  display: flex;
-  flex-direction: column;
-  align-items: center; // Telefon ekranida markazlash uchun
-}
-.card {
-  width: 100%;
-  max-width: 350px; // Telefon ekranda kartani juda enli bo'lib ketishini oldini oladi
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between; // Tugmani doim eng pastga tekislaydi
-}
 
-// ==========================================
-// RESPONSIVE DESIGN (Moslashuvchanlik)
-// ==========================================
-
-// Kichikroq monitorlar va planshetlar uchun (992px gacha)
 @media (max-width: 992px) {
   .portfolio-section {
     padding: 60px 0;
@@ -142,24 +125,22 @@ $main-color: #00eeff;
     }
 
     .portfolio-container {
-      grid-template-columns: repeat(2, 1fr); // Monitor kichrayganda 2 tadan bo'ladi
+      grid-template-columns: repeat(2, 1fr);
       gap: 20px;
     }
   }
 }
 
-// Kichik planshetlar va telefonlar uchun (768px gacha)
 @media (max-width: 768px) {
   .portfolio-section {
     .portfolio-container {
-      grid-template-columns: 1fr; // To'liq bitta qatorga o'tadi
-      max-width: 420px; // Telefonda juda cho'zilib ketmasligi uchun
+      grid-template-columns: 1fr;
+      max-width: 420px;
       margin: 0 auto;
     }
   }
 }
 
-// Smartfonlar uchun (480px gacha)
 @media (max-width: 480px) {
   .portfolio-section {
     padding: 50px 0;
@@ -181,8 +162,6 @@ $main-color: #00eeff;
   }
 }
 
-
-// 300px gacha bo'lgan eng kichik ekranlar uchun maxsus qism
 @media (max-width: 340px) {
   .portfolio-section {
     .container {
@@ -197,11 +176,11 @@ $main-color: #00eeff;
       gap: 15px;
 
       .portfolio-box {
-        border-radius: 15px; // Burchaklarni biroz kichraytiramiz
+        border-radius: 15px;
         
         .portfolio-layer {
           h4 { font-size: 18px; }
-          p { display: none; } // Juda kichik ekranda joy qolmagani uchun tavsifni berkitamiz
+          p { display: none; }
           a { width: 38px; height: 38px; font-size: 16px; }
         }
       }

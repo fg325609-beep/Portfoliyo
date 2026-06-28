@@ -5,11 +5,9 @@ import "./Sectiontheare.scss";
 const Sectiontheare = () => {
   const { t } = useTranslation();
 
-  // Telegram Bot Ma'lumotlari
   const BOT_TOKEN = "8765397823:AAG5pg9Fxxo3rjFyFQKZyyA2SU-II5Y2zk0";
   const CHAT_ID = "6660879147";
 
-  // Form holatlari (State)
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -20,17 +18,14 @@ const Sectiontheare = () => {
 
   const [status, setStatus] = useState({ loading: false, success: null });
 
-  // Inputlar o'zgarganda state-ni yangilash
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  // Telegramga xabar yuborish funksiyasi
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus({ loading: true, success: null });
 
-    // Botga boradigan chiroyli xabar formati
     const textMessage = `
 📬 *Yangi Xabar (Portfolio)*\n\n` +
 `👤 *Ism:* ${formData.name}\n` +
@@ -54,7 +49,6 @@ const Sectiontheare = () => {
 
       if (response.ok) {
         setStatus({ loading: false, success: true });
-        // Formani tozalash
         setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
       } else {
         setStatus({ loading: false, success: false });
@@ -68,14 +62,12 @@ const Sectiontheare = () => {
     <section className="contact-section" id="contact">
       <div className="container">
         
-        {/* Sarlavha qismi */}
         <h1 className="section-title">
           {t('contact.title_part1')}
           <span>{t('contact.title_part2')}</span>
         </h1>
 
-        {/* Aloqa formasi */}
-        <form onSubmit={handleSubmit} className="contact-form">
+        <form onSubmit={handleSubmit} className="contact-form" data-aos="fade-up">
           <div className="input-group">
             <input 
               type="text" 
@@ -123,7 +115,6 @@ const Sectiontheare = () => {
             required
           ></textarea>
 
-          {/* Holat haqida xabarnoma */}
           {status.success === true && <p className="status-msg success">{t('contact.success')}</p>}
           {status.success === false && <p className="status-msg error">{t('contact.error')}</p>}
 

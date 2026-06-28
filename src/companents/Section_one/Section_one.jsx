@@ -23,7 +23,7 @@ const Section_one = () => {
 
           <div className="cards">
             {Array.isArray(servicesList) && servicesList.map((item, index) => (
-              <div className="card" key={index}>
+              <div className="card" key={index} data-aos="fade-up" data-aos-delay={index * 150}>
                 <div className="icon-box">
                   {cardIcons[index]}
                 </div>

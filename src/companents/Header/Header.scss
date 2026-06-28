@@ -8,7 +8,7 @@ header {
   top: 0;
   left: 0;
   width: 100%;
-  background-color: rgba($bg-color, 0.95);
+  background: linear-gradient(135deg, rgba(#1f242d, 0.95), rgba(#1a1f27, 0.95));
   backdrop-filter: blur(10px);
   padding: 20px 0;
   z-index: 1000;
@@ -27,9 +27,12 @@ header {
     font-size: 25px;
     color: $text-color;
     font-weight: 700;
+    background: linear-gradient(135deg, $main-color, #0077ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
-  // KATTA EKRANLAR UCHUN MENYU STILI
   .nav-menu {
     ul {
       display: flex;
@@ -43,17 +46,33 @@ header {
           text-decoration: none;
           font-weight: 500;
           transition: color 0.3s ease;
+          position: relative;
+
+          &::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: $main-color;
+            transition: width 0.3s ease;
+            box-shadow: 0 0 8px rgba($main-color, 0.6);
+          }
 
           &:hover, &[href="#home"] {
             color: $main-color;
             text-shadow: 0 0 10px rgba($main-color, 0.6);
+            
+            &::after {
+              width: 100%;
+            }
           }
         }
       }
     }
   }
 
-  // O'ng tomon bloklari (Select va Burger)
   .header-right {
     display: flex;
     align-items: center;
@@ -76,61 +95,62 @@ header {
       border-color: $main-color;
       box-shadow: 0 0 8px rgba($main-color, 0.4);
     }
+
+    option {
+      background-color: $bg-color;
+    }
   }
 
-  // Burger tugmasi (Katta ekranda berkitib turiladi)
   .menu-burger-btn {
     display: none;
     background: transparent;
-    border: none;
+    border: 2px solid transparent;
     color: $text-color;
     font-size: 24px;
     cursor: pointer;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
+    padding: 6px;
+    border-radius: 6px;
 
     &:hover {
       color: $main-color;
+      border-color: rgba($main-color, 0.3);
+      box-shadow: 0 0 15px rgba($main-color, 0.2);
     }
   }
 }
 
-// Fixed header ostida qolmasligi uchun body paddingi
 body {
   padding-top: 75px; 
 }
 
-// ==========================================
-// MODAL VA RESPONSIVE DIZAYN (768px dan pastga)
-// ==========================================
 @media (max-width: 768px) {
   header {
     padding: 15px 0;
 
     .menu-burger-btn {
-      display: flex; // Telefon ekranda burger ko'rinadi
-      z-index: 1001; // Menyu ichida ustki qatlamda turishi uchun
+      display: flex;
+      z-index: 1001;
     }
 
-    // Navigatsiya endi yon tomondan chiquvchi MODALga aylanadi
     .nav-menu {
       position: fixed;
       top: 0;
-      right: -100%; // Boshlang'ich holatda ekrandan tashqarida turadi
-      width: 280px;  // Modal eni
-      height: 100vh; // Butun ekran bo'yi
-      background-color: lighten($bg-color, 3%);
+      right: -100%;
+      width: 280px;
+      height: 100vh;
+      background: linear-gradient(135deg, #232a35, #1f242d);
       box-shadow: -5px 0 25px rgba(0, 0, 0, 0.5);
-      border-left: 2px solid $main-color; // Neon chet chizig'i
+      border-left: 2px solid $main-color;
       padding: 100px 40px;
-      transition: right 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); // Silliq sirg'alish
+      transition: right 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
-      // Modal ochiq bo'lganda (active klassi qo'shilganda)
       &.active {
-        right: 0; // Ekran ichiga kirib keladi
+        right: 0;
       }
 
       ul {
-        flex-direction: column; // Havolalar ustma-ust tushadi
+        flex-direction: column;
         gap: 30px;
 
         li a {
@@ -143,7 +163,6 @@ body {
   }
 }
 
-// Orqa fonni xiralashtiruvchi overlay
 .menu-overlay {
   position: fixed;
   top: 0;
@@ -155,12 +174,11 @@ body {
   z-index: 999;
 }
 
-// 300px gacha bo'lgan o'ta kichik mobil ekranlar uchun
 @media (max-width: 340px) {
   header {
     .logo { font-size: 20px; }
     .nav-menu {
-      width: 230px; // Juda kichik ekranda modal biroz toraytiriladi
+      width: 230px;
       padding: 90px 25px;
     }
   }

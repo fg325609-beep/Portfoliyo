@@ -1,6 +1,5 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-// Ikonkalarni to'g'ri va xatosiz import qilamiz
 import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from 'react-icons/fa';
 import "./Hero.scss";
 
@@ -12,8 +11,7 @@ const Hero = () => {
       <div className="container">
         <div className="hero">
           
-          {/* Chap tomon (Matn va Ikonkalar) */}
-          <div className="hero-left">
+          <div className="hero-left" data-aos="fade-right" data-aos-duration="1000">
             <h5>{t('hero.hello')}</h5>
             <h2>John Kendric</h2>
             <h3>
@@ -22,7 +20,6 @@ const Hero = () => {
             </h3>
             <p>{t('hero.description')}</p>
             
-            {/* Ijtimoiy tarmoq ikonkalari */}
             <div className="social-icons">
               <a href="https://facebook.com" target="_blank" rel="noreferrer"><FaFacebookF /></a>
               <a href="https://twitter.com" target="_blank" rel="noreferrer"><FaTwitter /></a>
@@ -30,12 +27,10 @@ const Hero = () => {
               <a href="https://linkedin.com" target="_blank" rel="noreferrer"><FaLinkedinIn /></a>
             </div>
 
-            {/* Neon effektli yuklab olish tugmasi */}
             <button className="cv-btn">{t('hero.download_btn')}</button>
           </div>
 
-          {/* O'ng tomon (Rasm va Oltiburchak blok) */}
-          <div className="hero-right">
+          <div className="hero-right" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
             <div className="img-box">
               <img src="src/companents/img/hero.png" alt="John Kendric" />
             </div>
